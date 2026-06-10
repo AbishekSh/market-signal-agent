@@ -1,0 +1,19 @@
+services:
+  financial-agent:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      SEC_USER_AGENT: ${SEC_USER_AGENT:-Your Name your.email@gmail.com}
+      SMTP_HOST: ${SMTP_HOST:-smtp.gmail.com}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      REPORT_EMAIL_TO: ${REPORT_EMAIL_TO:-}
+      OLLAMA_HOST: ${OLLAMA_HOST:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-llama3.2:3b}
+      WORKSPACE_DIR: /workspace
+    volumes:
+      - ./workspace:/workspace
