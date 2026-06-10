@@ -11,7 +11,7 @@ Analyze SpaceX prospectus ahead of the IPO
 ## What It Does
 
 - Parses the request into structured intent.
-- Resolves SpaceX and related aliases to SEC CIK `0001181412`.
+- The LLM interprets what company the user likely means, but the final company identity and CIK are resolved through deterministic code and SEC EDGAR data.
 - Searches SEC EDGAR for the requested filing type with IPO-oriented fallbacks.
 - Downloads SEC filing artifacts and companyfacts when available.
 - Extracts structured XBRL/companyfacts data where possible.
@@ -93,7 +93,7 @@ Telegram placeholder:
 POST /telegram/webhook
 ```
 
-Telegram is optional. If `TELEGRAM_BOT_TOKEN` is absent, Telegram sending is skipped safely.
+Telegram is optional. If `TELEGRAM_BOT_TOKEN` is absent, Telegram sending is skipped.
 
 ## Scripts
 
